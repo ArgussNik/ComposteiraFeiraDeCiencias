@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPEN - Composteira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topo">
+        <div class="logo-titulo">
+            <h1>ALPEN COMPOSTEIRA</h1>
+            <p>Transformando resíduos em vida e sustentabilidade
+            <img src="WhatsApp Image 2025-08-16 at 16.42.53.jpeg" alt="Logotipo do ALPEN" class="logo"></p>
+        </div>
+        <nav class="menu">
+            <a href="#home">Home</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#biografias">Biografias</a>
+            <a href="#contato">Contato</a>
+            <a href="#compostagem">Compostagem</a>
+            <a href="#codes">Codes</a>
+
+            <button id="modoBtn">🌙</button>
+
+        </nav>
+    </header>
+
+    
+
+
+    <!-- Carrossel da Composteira -->
+    <div class="composteira-slider" id="slider">
+        <button class="prev" onclick="moverSlide(-1)">&#10094;</button>
+        <div class="composteira-slides-container">
+            <div class="composteira-slides">
+                <img src="Captura de tela 2025-08-14 211808.png" alt="Composteira 1">
+                <img src="captura2.png" alt="Composteira 2">
+                <img src="captura3.png" alt="Composteira 3">
+                <img src="captura4.png" alt="Composteira 4">
+            </div>
+        </div>
+        <button class="next" onclick="moverSlide(1)">&#10095;</button>
+    </div>
+
+    <section class="explicacoes">
+        <h2>Como Funciona o ALPEN</h2>
+        <div class="explicacoes-container">
+            <img src="Captura de tela 2025-08-14 211808.png" alt="Explicação 1">
+            <img src="captura2.png" alt="Explicação 2">
+            <img src="captura3.png" alt="Explicação 3">
+            <img src="captura4.png" alt="Explicação 4">
+            <img src="captura5.png" alt="Explicação 5">
+            <img src="captura6.png" alt="Explicação 6">
+            <img src="captura7.png" alt="Explicação 7">
+            <img src="captura8.png" alt="Explicação 8">
+            <img src="captura9.png" alt="Explicação 9">
+            <img src="captura10.png" alt="Explicação 10">
+        </div>
+    </section>
+
+   
+
+    <div class="particulas-container">
+        <!-- Partículas geradas via CSS -->
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+    </div>
+
+    <section id="galeria" class="galeria">
+        <h2>Galeria</h2>
+        <div class="galeria-container">
+            <img src="zap1.jpeg" alt="Imagem 1 da composteira">
+            <img src="zap2.jpeg" alt="Imagem 2 da composteira">
+            <img src="zap3.jpeg" alt="Imagem 3 da composteira">
+            <img src="zap4.jpeg" alt="Imagem 4 da composteira">
+            <img src="zap5.jpeg" alt="Imagem 5 da composteira">
+            <img src="zap6.jpeg" alt="Imagem 6 da composteira">
+            <img src="zap7.jpeg" alt="Imagem 7 da composteira">
+        </div>
+    </section>
+
+    <section id="compostagem" class="section">
+        <h2>Compostagem</h2>
+        <p class="sub">Estudo breve e aplicação no projeto ALPEN.</p>
+        <p>
+            A compostagem é um processo biológico natural no qual microrganismos, fungos e pequenos invertebrados decompõem a matéria orgânica como restos de alimentos, folhas secas e resíduos agrícolas transformando-a em um material rico em nutrientes chamado húmus ou composto orgânico. Esse processo é fundamental para fechar o ciclo da natureza, já que devolve ao solo os nutrientes retirados pelas plantas, melhorando sua fertilidade e estrutura. Para que a compostagem ocorra de forma eficiente, é necessário manter o equilíbrio entre materiais ricos em carbono (secos, como folhas e serragem) e materiais ricos em nitrogênio (úmidos, como restos de frutas e verduras). Além disso, fatores como umidade, temperatura e oxigenação precisam ser controlados. Se esses parâmetros não forem equilibrados, podem surgir problemas como mau cheiro, proliferação de insetos ou demora na decomposição.
+        </p>
+        <p>
+            O processo pode ser dividido em três fases principais: Fase inicial (mesofílica): microrganismos começam a degradar o material mais simples, gerando calor. Fase termofílica: a temperatura sobe, eliminando patógenos e acelerando a decomposição da matéria orgânica. Fase de maturação: a pilha de composto se estabiliza, formando o húmus pronto para ser utilizado como adubo natural. A compostagem, além de reduzir o volume de resíduos que iriam para aterros sanitários, contribui para práticas agrícolas mais sustentáveis, gerando um adubo de alta qualidade sem a necessidade de produtos químicos.
+        </p>
+        <p>
+            Aplicação no Projeto ALPEN O Projeto ALPEN, desenvolvido no âmbito escolar, busca aprimorar esse processo natural de compostagem por meio da tecnologia e automação. A proposta é criar uma composteira inteligente equipada com sensores de temperatura, umidade do solo e gases, além de mecanismos automáticos de revolvimento do material. Essa automação garante que o processo ocorra de maneira mais rápida e eficiente, evitando erros humanos comuns como a falta de oxigenação ou o excesso de resíduos úmidos. Com o auxílio de microcontroladores como o Arduino e o ESP32, o sistema pode monitorar em tempo real as condições do composto e até notificar o usuário sobre a necessidade de ajustes. Além disso, a inclusão de bombas de água, servomotores e extratores de líquido permite maior controle da umidade e melhor aproveitamento do chorume como fertilizante líquido. Essa solução não só melhora a eficácia do processo de transformação dos resíduos orgânicos em adubo, mas também facilita sua aplicação em diferentes contextos: desde hortas escolares e domésticas até propriedades rurais de maior porte. Com isso, o ALPEN Composteira promove a sustentabilidade, reduz a produção de lixo orgânico e incentiva práticas de cuidado com o meio ambiente de forma prática e inovadora.
+        </p>
+        <center><img src="istockphoto-1370922455-612x612.jpg" alt="Compostagem" class="compostagem-image"></center>
+
+            <div class="compostagem-overlay">
+        <img src="Free__Bulbasaur_PNG_Image_with_Transparent_Background-removebg-preview.png" class="pokemon-float" style="top: 10%; left: 5%;" alt="Bulbasaur">
+        <img src="cypher.png" class="pokemon-float" style="top: 15%; right: 1%;" alt="Oddish">
+        <img src="Bayleef-removebg-preview.png" class="pokemon-float" style="bottom: 20%; left: 1%;" alt="Bayleef">
+        <img src="venussaur.png" class="pokemon-float" style="bottom: 10%; right: 5%;" alt="Venusaur">
+
+        <div class="particle-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+</section>
+     
+  
+</section>
+
+
+    <section id="codes" class="codes">
+        <h2>Códigos do Projeto</h2>
+        <!-- Arduino - Sistema de Aeração -->
+        <div class="code-block">
+            <h3>Arduino - Sistema de Aeração</h3>
+            <pre><code>
+#include <Servo.h>
+Servo servo1;
+Servo servo2;
+int pos;
+
+void setup() {
+    servo1.attach(6);
+    servo2.attach(9);
+    servo1.write(0);
+    servo2.write(0);
+}
+
+void loop() {
+    // Movimento de 0 a 90 graus
+    for (pos = 90; pos < 90; pos++) {
+        servo1.write(pos);
+        servo2.write(pos);
+        delay(5);
+    }
+    delay(60000);
+
+    for (pos = 90; pos >= 0; pos--) {
+        servo1.write(pos);
+        servo2.write(pos);
+        delay(5);
+    }
+    delay(60000);
+}
+            </code></pre>
+        </div>
+
+        <!-- Arduino - Sistema da Bomba d'água -->
+        <div class="code-block">
+            <h3>Arduino - Sistema da Bomba d'água com sensor</h3>
+            <pre><code>
+const int sensorPin = A0;
+const int relayPin = 8;
+const int limiteSeco = 500;
+const int limiteUmido = 520;
+bool bombaLigada = false;
+
+void setup() {
+    pinMode(relayPin, OUTPUT);
+    digitalWrite(relayPin, HIGH);
+    Serial.begin(9600);
+}
+
+int leituraMedia() {
+    long soma = 0;
+    const int numLeituras = 50;
+    for (int i = 0; i < numLeituras; i++) {
+        soma += analogRead(sensorPin);
+        delay(2);
+    }
+    return soma / numLeituras;
+}
+
+void loop() {
+    int leitura = leituraMedia();
+    Serial.print("Leitura média: ");
+    Serial.println(leitura);
+    if (!bombaLigada && leitura < limiteSeco) {
+        Serial.println("Solo seco → LIGANDO BOMBA");
+        digitalWrite(relayPin, LOW);
+        bombaLigada = true;
+        delay(3000);
+    } else if (bombaLigada && leitura > limiteUmido) {
+        Serial.println("Solo úmido → DESLIGANDO BOMBA");
+        digitalWrite(relayPin, HIGH);
+        bombaLigada = false;
+        delay(3000);
+    }
+    delay(500);
+}
+            </code></pre>
+        </div>
+
+        <!-- Microbit - Umidade e Temperatura -->
+        <div class="code-block">
+            <h3>Microbit - Sensor de Umidade e Temperatura (JavaScript)</h3>
+            <pre><code>
+// Controla se o coração está batendo
+
+// Botão A: Leitura da umidade
+input.onButtonPressed(Button.A, function () {
+    animando = false;
+    umidade = pins.analogReadPin(AnalogPin.P0);
+    basic.pause(1000);
+    if (umidade <= 690) {
+        basic.showLeds(
+            ". # . # . . . . . " +
+            ". # # # . # . . . " +
+            "# # . . . # . . . " +
+            "#"
+        );
+    } else if (umidade <= 880) {
+        basic.showLeds(
+            ". . . . . . # . # " +
+            ". . . . . # # # # " +
+            "# . . . . "
+        );
+    } else {
+        basic.showLeds(
+            ". # . # . . . . . " +
+            ". # . . . # . # # " +
+            "# # . . . . . "
+        );
+    }
+});
+
+// Botão A+B: Inicia a animação de coração batendo
+input.onButtonPressed(Button.AB, function () {
+    animando = true;
+});
+
+// Botão B: Leitura da temperatura
+input.onButtonPressed(Button.B, function () {
+    animando = false;
+    temperatura = input.temperature();
+    basic.showNumber(temperatura);
+    basic.showString("°C");
+});
+
+let temperatura = 0;
+let umidade = 0;
+let animando = false;
+
+music.setVolume(255);
+
+basic.forever(function () {
+    music.playTone(880, music.beat(BeatFraction.Sixteenth));
+    music.playTone(660, music.beat(BeatFraction.Sixteenth));
+    music.playTone(440, music.beat(BeatFraction.Sixteenth));
+    music.playTone(880, music.beat(BeatFraction.Quarter));
+    music.playTone(880, music.beat(BeatFraction.Sixteenth));
+    music.playTone(660, music.beat(BeatFraction.Eighth));
+    music.playTone(660, music.beat(BeatFraction.Sixteenth));
+    music.playTone(880, music.beat(BeatFraction.Sixteenth));
+    music.playTone(523, music.beat(BeatFraction.Sixteenth));
+    music.playTone(349, music.beat(BeatFraction.Quarter));
+    basic.pause(5000);
+});
+
+// Loop principal para animação
+basic.forever(function () {
+    if (animando) {
+        basic.showLeds(
+            ". . # . . . # # # . # # # # # . # # # . . . # . ."
+        );
+        basic.pause(300);
+        basic.showLeds(
+            ". # . # . # . . . # # . . . # . # . # . . . # . ."
+        );
+        basic.pause(300);
+    }
+});
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="biografias" class="biografias">
+        <center><h2>Biografias</h2></center>
+        <div class="biografias-container">
+            <div class="pessoa">
+                <img src="nikoicon.jpeg" alt="Nicollas">
+                <h3>Nicollas Henrique<br>(Aluno responsável pela programação dos circuitos, do Website e construção de alguns sistemas)</h3>
+                <p>Nascido em 2008, leitor, apreciador de Filosofia, Teologia, Programação Web, JS e Python, estudante, amante da área das exatas e carinho por tecnologia em geral, gosto de criar projetos no ramo tecnológico também. Faço curso de Informática, já fiz cursos de Javascript diversos oferecidos pela Google e também cursos de Programação Web pela Rocketseat, Curso de Marketing e Mundo do Trabalho pelo SENAI completos, cursando inglês pela MBS School e também Hebraico pela Academia de Moíses. Sou estudante do Segundo Ano do Ensino Médio, na escola Heleodoro Borges - SC. Toco Clarinete, faço uns textos legais e desejo cursar Engenharia da Computação na UFSC. Gostaria de agradecer a todos os envolvidos nesse projeto do ALPEN, de fato, desenvolvendo esse projeto juntos, consegui aprender muitas coisas, desde o trabalho em equipe até a programar um Arduíno. Agradeço a você leitor e avaliador por ler essas biografias. Muito Obrigado! :D</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="borbaicon.jpeg" alt="Leonardo Borba">
+                <h3>Leonardo Borba<br>(Aluno responsável pelo estudo de sensores e integração eletrônica.)</h3>
+                <p>Meu nome é Leonardo Borba Iensen da Cunha e atualmente tenho 17 anos. Tenho grande apreço pelo esporte e me considero um atleta, além disso, desejo ser um atleta profissional na minha carreira futura. "Com esse projeto, aprendi muitas coisas, sistemas que eu não sabia e tive que aprender na marra, além do mais, desejo que esse projeto seja muito bem utilizado e implantado em escolas, campos, etc.</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="danaicon.jpeg" alt="Dana">
+                <h3>Dana Saraid<br>(Aluna responsável pela parte de construção, pintura e design.)</h3>
+                <p>Dana Saraid,17 anos, tenho como hobbies escrever, ler e cozinhar. Estou cursando o técnico em RH, aula de inglês e tenho certificado de administração. Para meu futuro eu quero ter uma vida tranquila com uma linda família que serve a Deus. "Esse projeto me demonstrou que o nosso futuro depende de nós"</p>
+            </div>
+
+            <div class="pessoa">
+                <img src="luanicon.jpeg" alt="Eve">
+                <h3>Evellen<br>(Aluno responsável pela parte de construção, pintura e design.)</h3>
+                <p>Meu nome é Luan Gabriel, tenho 17 anos, gosto de ler, jogar e praticar esportes. Estou cursando o técnico em Informática, faço inglês e tenho certificado de administração. Quero ser um desenvolvedor de jogos no futuro. "Esse projeto me ensinou a trabalhar em equipe e a importância da sustentabilidade."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Contato" class="Contato">
+        <footer class="footer">
+            <p><i class="fas fa-envelope"></i> Email: <a href="malito:nicovaniaze@gmail.com">nicovaniaze@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Telefone: <a href="tel:+55 47 988162229">(47) 98816-2229</a></p>
+            <p><i class="fab fa-instagram"></i> Instagram: 
+                <a href="https://www.instagram.com/niko_argus1810" target="_blank">@Niko</a>
+                <a href="https://www.instagram.com/urfav.danita" target="_blank">@Dana</a>
+                <a href="https://www.instagram.com/evexy_v1" target="_blank">@Eve</a>
+                <a href="https://www.instagram.com/seiasleo" target="_blank">@Leo</a>
+            </p>
+        </footer>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </section>
+
+<button id="btnTopo">↑</button>
+
+<script>
+  const btnTopo = document.getElementById("btnTopo");
+
+  // aparece só quando rola
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      btnTopo.style.display = "block";
+    } else {
+      btnTopo.style.display = "none";
+    }
+  };
+
+  // rola suavemente pro topo
+  btnTopo.onclick = function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
+
+
+
+<script>
+  const modoBtn = document.getElementById("modoBtn");
+  modoBtn.onclick = function() {
+    document.body.classList.toggle("dark-mode");
+    // troca o ícone
+    modoBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+  };
+</script>
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

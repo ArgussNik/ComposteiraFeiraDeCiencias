@@ -1,0 +1,705 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    /* Imagem de fundo funcionando */
+    background: url('ChatGPT\ Image\ 16\ de\ ago.\ de\ 2025\,\ 15_15_18.png') no-repeat center center;
+    background-size: cover; /* cobre toda a tela */
+    background-attachment: fixed; /* fixa ao rolar a página */
+}
+
+h2 {
+    color: #FFD700 !important;
+    font-size: 40px !important;
+    text-align: center !important;
+    margin: 30px 0 !important;
+    font-style: italic !important;
+    font-weight: bold !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+    letter-spacing: 2px !important;
+}
+
+
+.logo {
+    position: absolute;   
+    top: 20px;            
+    right: 150px;          
+    width: 100px;
+    height: 100px;
+}
+
+
+/* Barra de topo */
+.topo {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* semi-transparente sobre o fundo */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    position: static; /* fixa no topo ao rolar */
+    top: 0;
+    z-index: 20; /* acima de Pokémon e slider */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Título principal */
+.logo-titulo h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+/* Subtítulo */
+.logo-titulo p {
+    font-size: 18px;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Menu horizontal */
+.menu {
+    margin-top: 15px;
+    display: flex;
+    gap: 30px; /* espaço entre os links */
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    background: #ffd700; /* amarelo shiny */
+    color: #000;
+    transform: scale(1.1);
+}
+
+
+/* Slider da composteira */
+.composteira-slider {
+    position: relative;
+    width: 80%; /* deixa espaço nas laterais */
+    max-width: 1000px; /* controla o tamanho máximo */
+    margin: 50px auto; /* centraliza com espaço em cima e embaixo */
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+/* Container de rolagem */
+.composteira-slides-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Linha de slides */
+.composteira-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Imagens do slider */
+.composteira-slides img {
+    width: 100%; /* cada imagem ocupa 100% do espaço do slider */
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Botões de navegação */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* Explicações embaixo do slider */
+.explicacoes {
+    width: 80%; /* quase mesmo tamanho do slider */
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.explicacoes h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Container vertical */
+.explicacoes-container {
+    display: flex;
+    flex-direction: column; /* empilha verticalmente */
+    gap: 20px; /* espaço entre as imagens */
+    align-items: center;
+}
+
+.explicacoes-container img {
+    width: 100%; /* ocupa quase todo o espaço do container */
+    height: auto; /* mantém proporção */
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Pokémon flutuando */
+.pokemon-float {
+    position: fixed; /* fixa na tela, mesmo ao rolar */
+    width: 200px; /* tamanho da imagem */
+    z-index: 5; /* atrás do slider */
+    animation: flutuar 8s ease-in-out infinite alternate;
+    pointer-events: none; /* não atrapalha clique */
+}
+
+/* animação suave de cima pra baixo */
+@keyframes flutuar {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(20deg); }
+    100% { transform: translateY(0px) rotate(5deg); }
+}
+
+/* Classe para ocultar Pokémon durante o slider */
+.pokemon-float.oculto {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.particulas-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* não bloqueia cliques */
+    overflow: hidden;
+    z-index: 1; /* atrás do conteúdo principal, mas na frente do fundo */
+}
+
+.particula {
+    position: absolute;
+    bottom: -10px; /* inicia fora da tela */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white; /* cor padrão, pode ser alterada */
+    opacity: 0.8;
+    animation: subir 4s linear infinite;
+}
+
+/* Variações de cor e posição */
+.particula:nth-child(2) { background: yellow; left: 10%; animation-duration: 5s; }
+.particula:nth-child(3) { left: 25%; animation-duration: 3.5s; }
+.particula:nth-child(4) { background: yellow; left: 40%; animation-duration: 4.5s; }
+.particula:nth-child(5) { left: 55%; animation-duration: 6s; }
+.particula:nth-child(6) { background: yellow; left: 70%; animation-duration: 4s; }
+.particula:nth-child(7) { left: 80%; animation-duration: 5.5s; }
+.particula:nth-child(8) { background: yellow; left: 30%; animation-duration: 4.2s; }
+.particula:nth-child(9) { left: 60%; animation-duration: 3.8s; }
+.particula:nth-child(10) { background: yellow; left: 90%; animation-duration: 4.7s; }
+
+/* Animação de subida */
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.galeria {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.galeria h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.galeria-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.galeria-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.galeria-container img:hover {
+    transform: scale(1.05);
+}
+
+.biografias-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.pessoa {
+    display: flex;
+    align-items: center; /* centraliza verticalmente */
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pessoa img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.pessoa h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.pessoa p {
+    margin: 0;
+    color: #555;
+}
+
+.pessoa-texto {
+    flex: 1;
+    text-align: justify;
+}
+
+.footer {
+    background: #111; /* fundo escuro */
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    border-top: 2px solid #333;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a {
+    color: #1e90ff;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #00bfff;
+}
+
+.footer i {
+    margin-right: 6px;
+    color: #ffcc00;
+}
+
+
+
+
+
+/* Seção Compostagem */
+#compostagem.section {
+  width: 80%;
+  max-width: 1000px;
+  margin: 50px auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
+  padding: 28px 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+#compostagem.section h2 {
+  font-size: 28px;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+#compostagem.section .sub {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+#compostagem.section p,
+#compostagem.section li {
+  color: #333;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+#compostagem.section ul {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+
+
+.codes {
+  padding: 50px 20px;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+}
+
+.codes h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #ffd700;
+}
+
+.code-block {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 900px;
+  background: #111;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.code-block h3 {
+  margin-bottom: 10px;
+  color: #4ade80; /* verdinho destaque */
+}
+
+.code-block pre {
+  background: #000;
+  color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: "Fira Code", monospace;
+}
+
+
+
+
+/* Pokémon flutuando - transição para elétrico */
+.pokemon-float.transition {
+    transition: opacity 1s ease-in-out;
+}
+
+/* Novas imagens elétricas ficam transparentes inicialmente */
+.pokemon-float.eletrico {
+    opacity: 0;
+}
+
+/* Quando ativadas, ficam visíveis */
+.pokemon-float.eletrico.visivel {
+    opacity: 1;
+}
+
+/* Container de partículas na seção Compostagem */
+#compostagem .particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Partículas amarelas e brancas pequenas */
+#compostagem .particle {
+    position: absolute;
+    bottom: -20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.8;
+    
+}
+
+#compostagem .particle:nth-child(2),
+#compostagem .particle:nth-child(4),
+#compostagem .particle:nth-child(6),
+#compostagem .particle:nth-child(8),
+#compostagem .particle:nth-child(10) {
+    background: yellow;
+}
+
+/* Animação de subida das partículas */
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* partículas elétricas específicas */
+#compostagem .particle.eletrico {
+    animation-name: eletricidade;
+    border-radius: 50% 20% 50% 20%;
+    width: 10px;
+    height: 10px;
+}
+
+@keyframes eletricidade {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.5; scale: 0.5; }
+    25% { transform: translateY(-20vh) rotate(20deg); opacity: 1; scale: 1; }
+    50% { transform: translateY(-50vh) rotate(-20deg); opacity: 0.8; scale: 0.8; }
+    75% { transform: translateY(-80vh) rotate(10deg); opacity: 1; scale: 1; }
+    100% { transform: translateY(-110vh) rotate(-10deg); opacity: 0; scale: 0.5; }
+}
+/* Partículas elétricas (raio) */
+
+
+@keyframes raio {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+    25% { transform: translateY(-15px) rotate(10deg); opacity: 1; }
+    50% { transform: translateY(-30px) rotate(-10deg); opacity: 1; }
+    75% { transform: translateY(-45px) rotate(10deg); opacity: 1; }
+    100% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+}
+/* Animação de subida padrão */
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Animação de partículas elétricas */
+@keyframes raio {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+    25% { transform: translateY(-15px) rotate(10deg); opacity: 1; }
+    50% { transform: translateY(-30px) rotate(-10deg); opacity: 1; }
+    75% { transform: translateY(-45px) rotate(10deg); opacity: 1; }
+    100% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+}
+
+/* Container de partículas na seção Compostagem */
+#compostagem .particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Partículas padrão */
+#compostagem .particle {
+    position: absolute;
+}
+
+
+
+
+
+
+#btnTopo {
+  display: none; 
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 70px;
+  border: none;
+  outline: none;
+  background: #ffd700;
+  color: black;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#btnTopo:hover {
+  background: #333;
+  color: white;
+}
+
+
+
+
+
+
+/* Botão modo claro/escuro */
+#modoBtn {
+  margin-left: 15px;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffd700;
+  transition: all 0.3s ease;
+}
+
+#modoBtn:hover {
+  background: #ffd700;
+  color: black;
+}
+
+/* Estilo Dark Mode */
+body.dark-mode {
+  background: #121212 !important;
+  color: #f1f1f1;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p, 
+body.dark-mode a {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .topo {
+  background: rgba(20,20,20,0.9);
+}
+
+body.dark-mode .menu a:hover {
+  background: #fff;
+  color: #000;
+}
+
+
+
+
+
+
+/* Estilo Dark Mode */
+
+body.dark-mode {
+  background: url('imagemdark.png') no-repeat center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  color: #f1f1f1;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p, 
+body.dark-mode a {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .topo {
+  background: rgba(20,20,20,0.9);
+}
+
+body.dark-mode .menu a:hover {
+  background: #fff;
+  color: #000;
+}
+
+
+body.dark-mode #compostagem.section {
+  background: rgba(30,30,30,0.85); /* fundo escuro semi-transparente */
+  color: #f1f1f1; /* texto branco */
+}
+
+body.dark-mode #compostagem.section h2,
+body.dark-mode #compostagem.section p,
+body.dark-mode #compostagem.section li,
+body.dark-mode #compostagem.section .sub {
+  color: #f1f1f1; /* força cor branca nos elementos */
+}
+
+
+
+/* Dark mode na seção biografias */
+body.dark-mode .biografias-container {
+    background: transparent; /* ou rgba(0,0,0,0.1) se quiser um leve fundo escuro */
+}
+
+body.dark-mode .biografias-container .pessoa {
+    background: rgba(30,30,30,0.85); /* fundo escuro semi-transparente */
+    color: #f1f1f1; /* texto branco */
+}
+
+body.dark-mode .biografias-container .pessoa h3,
+body.dark-mode .biografias-container .pessoa p {
+    color: #f1f1f1; /* força texto branco */
+}
+
